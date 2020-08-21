@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 	
 setuptools.setup(
 	name="experiencecloudapis",
-	version="1.0.0",
+	version="1.0.1",
 	author="DHL Web Analytics",
 	author_email="analytics@dpdhl.com",
 	license='MIT',
@@ -14,5 +14,5 @@ setuptools.setup(
 	long_description_content_type="text/markdown",
 	packages=setuptools.find_packages(),
 	python_requires='>=3.6',
-	install_requires=['requests', 'pandas', 'PyJWT']
+	install_requires=['requests', 'pandas', 'PyJWT', 'cryptography']
 )
