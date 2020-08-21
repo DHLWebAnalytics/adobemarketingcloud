@@ -1,4 +1,5 @@
 import datetime
+import pytz
 import tempfile
 import io
 from experiencecloudapis.utils import (
@@ -26,6 +27,7 @@ def test_read_file_or_string():
     fp.write(b"teststring")
     fp.close()
     str_1 = read_file_or_string(fp.name)
+    assert str_1 == "teststring"
     f = io.StringIO()
     f.write("teststring")
     f.seek(0)
@@ -34,6 +36,6 @@ def test_read_file_or_string():
 
 
 def test_now_in_ms():
-    date = datetime.datetime(2020, 1, 1)
-    expected = 1577833200000
+    date = datetime.datetime(2020, 1, 1, tzinfo=pytz.UTC)
+    expected = 1577836800000
     assert now_in_ms(date) == expected
