@@ -1,4 +1,8 @@
 # Adobe Experience Cloud APIs for Python
+
+[![Build Status](https://travis-ci.org/DHLWebAnalytics/experiencecloudapis.svg?branch=master)](https://travis-ci.org/DHLWebAnalytics/experiencecloudapis)
+[![PyPI version](https://badge.fury.io/py/experiencecloudapis.svg)](https://badge.fury.io/py/experiencecloudapis)
+
 This Project tries to implement all Adobe Experience Cloud APIs for Python under one umbrella. Create an integration,
 select an authentication method and call your desired API.
 
