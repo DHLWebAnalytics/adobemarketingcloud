@@ -3,7 +3,10 @@ from requests.sessions import Session
 
 
 class AuthenticationClient(abc.ABC):
-    """Abstract Class for Authentication. This will be used for concrete authentication implementations"""
+    """
+    Abstract Class for Authentication.
+    This will be used for concrete authentication implementations
+    """
     @property
     @abc.abstractmethod
     def company_id(self) -> str:

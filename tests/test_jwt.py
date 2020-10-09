@@ -1,3 +1,5 @@
+# flake8: noqa
+
 import pytest
 import tempfile
 from unittest.mock import Mock
@@ -111,7 +113,8 @@ def test_config_check(correct_config):
 def test_jwt_client_init(correct_config, fake_private_file):
     jwt_client = JWT(correct_config, fake_private_file, 'test_company')
     assert list(jwt_client.config.keys()) == \
-           'client_secret org_id api_key technical_account_id technical_account_email company_id'.split(' ')
+           'client_secret org_id api_key technical_account_id ' \
+           'technical_account_email company_id'.split(' ')
     with open(fake_private_file.name, "r") as fd:
         data = fd.read()
     assert jwt_client.key == data
@@ -120,7 +123,8 @@ def test_jwt_client_init(correct_config, fake_private_file):
 def test_jwt_client_init_from_path(correct_config, fake_private_file):
     jwt_client = JWT(correct_config, fake_private_file.name, 'test_company')
     assert list(jwt_client.config.keys()) == \
-           'client_secret org_id api_key technical_account_id technical_account_email company_id'.split(' ')
+           'client_secret org_id api_key technical_account_id ' \
+           'technical_account_email company_id'.split(' ')
     with open(fake_private_file.name, "r") as fd:
         data = fd.read()
     assert jwt_client.key == data
@@ -138,21 +142,32 @@ def test_get_jwt(correct_config, fake_private_file):
     assert isinstance(jwt, bytes)
 
 
-def test_access_token(correct_config, fake_private_file, monkeypatch, successful_token_response):
+def test_access_token(correct_config,
+                      fake_private_file,
+                      monkeypatch,
+                      successful_token_response):
     jwt_client = JWT(correct_config, fake_private_file.name, 'test_company')
     monkeypatch.setattr(requests, "post", successful_token_response)
     access_token = jwt_client.token_response
-    assert access_token == {'access_token': 'test_token', 'expires_in': 86399994, 'token_type': 'bearer'}
+    assert access_token == {'access_token': 'test_token',
+                            'expires_in': 86399994,
+                            'token_type': 'bearer'}
 
 
-def test_access_token_fail(correct_config, fake_private_file, monkeypatch, unsuccessful_token_response):
+def test_access_token_fail(correct_config,
+                           fake_private_file,
+                           monkeypatch,
+                           unsuccessful_token_response):
     jwt_client = JWT(correct_config, fake_private_file.name, 'test_company')
     monkeypatch.setattr(requests, "post", unsuccessful_token_response)
     with pytest.raises(AuthenticationError):
         access_token = jwt_client.token_response
 
 
-def test_access_token_update(correct_config, fake_private_file, monkeypatch, successful_token_response):
+def test_access_token_update(correct_config,
+                             fake_private_file,
+                             monkeypatch,
+                             successful_token_response):
     jwt_client = JWT(correct_config, fake_private_file.name, 'test_company')
     mock_session = Mock()
     jwt_client.refresh_token = Mock()
@@ -161,7 +176,10 @@ def test_access_token_update(correct_config, fake_private_file, monkeypatch, suc
     jwt_client.refresh_token.assert_called_once()
 
 
-def test_access_token_no_update(correct_config, fake_private_file, monkeypatch, successful_token_response):
+def test_access_token_no_update(correct_config,
+                                fake_private_file,
+                                monkeypatch,
+                                successful_token_response):
     jwt_client = JWT(correct_config, fake_private_file.name, 'test_company')
     jwt_client.access_token = "123"
     jwt_client.expires_in = 123

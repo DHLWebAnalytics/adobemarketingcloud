@@ -1,5 +1,8 @@
 class ConfigInsufficientInformationError(Exception):
-    """Config file has insufficient information and an authentication would fail"""
+    """
+    Config file has insufficient information and an authentication
+    would fail
+    """
 
     def __init__(self, *args, **kwargs):
         pass

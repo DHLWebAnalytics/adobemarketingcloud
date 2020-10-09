@@ -1,3 +1,5 @@
+# flake8: noqa
+
 import pytest
 from unittest.mock import Mock
 from requests import Session

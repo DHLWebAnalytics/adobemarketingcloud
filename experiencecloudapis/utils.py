@@ -15,7 +15,8 @@ def lower_keys(obj: dict) -> dict:
     return nu_obj
 
 
-def read_file_or_string(filepath_or_file: typing.Union[str, typing.TextIO]) -> str:
+def read_file_or_string(filepath_or_file: typing.Union[str, typing.TextIO]) \
+        -> str:
     """
     Reads a file or filepath and opens and returns the content
 

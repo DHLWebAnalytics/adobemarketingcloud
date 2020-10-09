@@ -1,4 +1,5 @@
-import pytest
+# flake8: noqa
+
 from unittest.mock import Mock
 from experiencecloudapis import Analytics
 

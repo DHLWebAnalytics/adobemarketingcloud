@@ -33,7 +33,8 @@ class Analytics:
                  session: requests.Session = requests.Session()) -> None:
         self.session = session
         self.auth_client = auth_client
-        self.base_url = self.BASE_URL.format(company_id=self.auth_client.company_id)
+        self.base_url = self.BASE_URL.format(
+            company_id=self.auth_client.company_id)
 
     # Endpoint Block
     # Calculated Metrics
@@ -54,7 +55,8 @@ class Analytics:
             'sortProperty': sort_property,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -69,29 +71,35 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.post(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.post(f'{self.base_url}{endpoint}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
 
     @authenticate
-    def get_calculatedmetrics_functions(self, locale: str = 'en_US') -> Response:
+    def get_calculatedmetrics_functions(self,
+                                        locale: str = 'en_US') -> Response:
         endpoint = '/calculatedmetrics/functions'
         params = {
             'locale': locale
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
 
     @authenticate
-    def get_calculatedmetrics_function(self, id: str, locale: str = 'en_US') -> Response:
+    def get_calculatedmetrics_function(self, id: str,
+                                       locale: str = 'en_US') -> Response:
         endpoint = f'/calculatedmetrics/functions/{id}'
         params = {
             'locale': locale
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -108,7 +116,9 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.post(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.post(f'{self.base_url}{endpoint}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -119,7 +129,8 @@ class Analytics:
         params = {
             'locale': locale
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -135,7 +146,9 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.put(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.put(f'{self.base_url}{endpoint}',
+                                    params=params,
+                                    json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -148,7 +161,8 @@ class Analytics:
         params = {
             'locale': locale
         }
-        response = self.session.delete(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.delete(f'{self.base_url}{endpoint}',
+                                       params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -156,14 +170,18 @@ class Analytics:
     # Endpoint Block
     # Collections
     @authenticate
-    def get_collection_suites(self, limit: int = 10, page: int = 0, **kwargs) -> Response:
+    def get_collection_suites(self,
+                              limit: int = 10,
+                              page: int = 0,
+                              **kwargs) -> Response:
         endpoint = '/collections/suites'
         params = {
             'limit': limit,
             'page': page,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -190,19 +208,23 @@ class Analytics:
             'page': page,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
 
     @authenticate
-    def get_daterange(self, id: str, locale: str = 'en_US', **kwargs) -> Response:
+    def get_daterange(self, id: str,
+                      locale: str = 'en_US',
+                      **kwargs) -> Response:
         endpoint = f'/dateranges/{id}'
         params = {
             'locale': locale,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -222,7 +244,8 @@ class Analytics:
             'classificable': classficable,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -239,7 +262,8 @@ class Analytics:
             'locale': locale,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -259,7 +283,8 @@ class Analytics:
             segmentable: segmentable,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -276,7 +301,8 @@ class Analytics:
             'locale': locale,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -293,7 +319,8 @@ class Analytics:
         endpoint = '/reports'
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.post(f'{self.base_url}{endpoint}', json=payload)
+        response = self.session.post(f'{self.base_url}{endpoint}',
+                                     json=payload)
         if not response:
             raise ResponseError(response.json())
         return response
@@ -319,7 +346,8 @@ class Analytics:
             'sortProperty': sort_property,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -336,7 +364,9 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.post(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.post(f'{self.base_url}{endpoint}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -351,7 +381,9 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.post(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.post(f'{self.base_url}{endpoint}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -366,7 +398,8 @@ class Analytics:
             'locale': locale,
             **kwargs
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -384,7 +417,9 @@ class Analytics:
         }
         if isinstance(payload, str):
             payload = json.loads(payload)
-        response = self.session.put(f'{self.base_url}{endpoint}', params=params, json=payload)
+        response = self.session.put(f'{self.base_url}{endpoint}',
+                                    params=params,
+                                    json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -392,12 +427,13 @@ class Analytics:
     @authenticate
     def delete_segment(self,
                        id: str,
-                       locale : str = 'en_US') -> Response:
+                       locale: str = 'en_US') -> Response:
         endpoint = f'/segments/{id}'
         params = {
             'locale': locale
         }
-        response = self.session.delete(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.delete(f'{self.base_url}{endpoint}',
+                                       params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -412,7 +448,8 @@ class Analytics:
             'limit': limit,
             'page': page
         }
-        response = self.session.get(f'{self.base_url}{endpoint}', params=params)
+        response = self.session.get(f'{self.base_url}{endpoint}',
+                                    params=params)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -426,7 +463,8 @@ class Analytics:
         return response
 
     # The below belongs to Adobe Analytics 1.4 API.
-    # As classifications has not yet been ported to 2.0 we included it here for now.
+    # As classifications has not yet been ported to 2.0
+    # we included it here for now.
     @authenticate
     def classifications_commit_import(self, job_id: int) -> Response:
         BASE_URL = 'https://api.omniture.com/admin/1.4/rest/'
@@ -437,7 +475,9 @@ class Analytics:
         payload = {
             'job_id': job_id
         }
-        response = self.session.post(f'{BASE_URL}', params=params, json=payload)
+        response = self.session.post(f'{BASE_URL}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -467,7 +507,9 @@ class Analytics:
             'overwrite_conflicts': overwrite_conflicts,
             **kwargs
         }
-        response = self.session.post(f'{BASE_URL}', params=params, json=payload)
+        response = self.session.post(f'{BASE_URL}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -482,7 +524,9 @@ class Analytics:
         payload = {
             'job_id': job_id,
         }
-        response = self.session.post(f'{BASE_URL}', params=params, json=payload)
+        response = self.session.post(f'{BASE_URL}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -504,7 +548,9 @@ class Analytics:
             'rsid_list': rsid_list,
             **kwargs,
         }
-        response = self.session.post(f'{BASE_URL}', params=params, json=payload)
+        response = self.session.post(f'{BASE_URL}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
@@ -513,7 +559,8 @@ class Analytics:
     def classifications_populate_import(self,
                                         job_id: int,
                                         page: int,
-                                        rows: typing.List[typing.List[str]]) -> Response:
+                                        rows: typing.List[typing.List[str]]) \
+            -> Response:
         BASE_URL = 'https://api.omniture.com/admin/1.4/rest/'
         endpoint = 'Classifications.PopulateImport'
         params = {
@@ -524,7 +571,9 @@ class Analytics:
             'page': page,
             'rows': rows,
         }
-        response = self.session.post(f'{BASE_URL}', params=params, json=payload)
+        response = self.session.post(f'{BASE_URL}',
+                                     params=params,
+                                     json=payload)
         if response.status_code != 200:
             raise ResponseError(response.json())
         return response
