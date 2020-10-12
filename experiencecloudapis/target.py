@@ -188,13 +188,13 @@ class Target:
         :returns: requests.Response with created AB Activity
         :raises ResponseError: Response error if status code not 200
         """
-        endpoint = '/target/activities/ab/'
+        endpoint = '/target/activities/ab'
         # Target API uses different versions for endpoints
         self.session.headers.update({
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v3+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.post(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -226,7 +226,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v3+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -294,13 +294,13 @@ class Target:
         :returns: requests.Response with created XT Activity
         :raises ResponseError: Response error if status code not 200
         """
-        endpoint = '/target/activities/xt/'
+        endpoint = '/target/activities/xt'
         # Target API uses different versions for endpoints
         self.session.headers.update({
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v3+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.post(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -332,7 +332,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v3+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -370,7 +370,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -402,7 +402,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -434,7 +434,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -475,7 +475,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -510,7 +510,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -545,7 +545,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -586,7 +586,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -622,7 +622,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -658,7 +658,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -707,7 +707,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -751,7 +751,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -795,7 +795,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v1+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}', payload)
         if response.status_code != 200:
@@ -813,7 +813,7 @@ class Target:
         :returns: requests.Response with changelog of Activity
         :raises ResponseError: Response error if status code not 200
         """
-        endpoint = '/target/activities/ab/{id}/changelog'.format(id=id)
+        endpoint = '/target/activities/{id}/changelog'.format(id=id)
         # Target API uses different versions for endpoints
         self.session.headers.update({
             'Cache-Control': 'no-cache',
@@ -899,7 +899,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v2+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.post(f'{self.base_url}{endpoint}',
                                      json=payload)
@@ -910,7 +910,7 @@ class Target:
     # Update Offer
     @authenticate
     def update_offer(self,
-                     id, str,
+                     id: str,
                      payload: typing.Union[str, dict]) -> Response:
         """
         Updates the content offer referenced by the id specified in the URL.
@@ -926,7 +926,7 @@ class Target:
             'Cache-Control': 'no-cache',
             'Content-Type': 'application/vnd.adobe.target.v2+json',
         })
-        if type(payload) == 'str':
+        if type(payload) == str:
             payload = json.loads(payload)
         response = self.session.put(f'{self.base_url}{endpoint}',
                                     json=payload)
@@ -1055,7 +1055,7 @@ class Target:
     # Update Audience
     @authenticate
     def update_audience(self,
-                        id, str,
+                        id: str,
                         audience: typing.Union[str, dict]) -> Response:
         """
         Update an audience with the new rules specified by the request data.
@@ -1269,7 +1269,7 @@ class Target:
 
     # Get ABT Audit Report
     @authenticate
-    def get_abt_audit_report(self, id: str) -> Response:
+    def get_ap_audit_report(self, id: str) -> Response:
         """
         Retrieve the orders/audit report data for an ABT
 
@@ -1471,7 +1471,7 @@ class Target:
         # Profile data
         profile_response = self.get_profile_authentication_token()
         profile_authentication_token = \
-            json.loads(profile_response)['accessToken']
+            profile_response.json()['accessToken']
         # Target API uses different versions for endpoints
         self.session.headers.update({
             'access_token': profile_authentication_token,
@@ -1494,14 +1494,14 @@ class Target:
         :raises ResponseError: Response error if status code not 200
         """
         endpoint = 'https://{client_code}.tt.omtrdc.net/rest/v1/profiles/' \
-                   'thirdPartyId/{trd_party_id}/?client={client_code}'.format(
+                   'thirdPartyId/{trd_party_id}?client={client_code}'.format(
                     client_code=self.tenant_name,
                     trd_party_id=trd_party_id)
         # Profile Access Token is required in HTTP Header for retrieving
         # Profile data
         profile_response = self.get_profile_authentication_token()
         profile_authentication_token = \
-            json.loads(profile_response)['accessToken']
+            profile_response.json()['accessToken']
         # Target API uses different versions for endpoints
         self.session.headers.update({
             'access_token': profile_authentication_token,
