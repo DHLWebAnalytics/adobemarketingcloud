@@ -1,3 +1,4 @@
+import sys
 import typing
 import datetime
 
@@ -41,3 +42,7 @@ def now_in_ms(date: datetime.datetime = datetime.datetime.now()) -> int:
     :return: date in ms ISO format
     """
     return int(date.timestamp() * 1000)
+
+
+def size_in_kbs(obj: typing.Any):
+    return sys.getsizeof(obj) / 100
