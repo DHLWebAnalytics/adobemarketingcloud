@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="experiencecloudapis",
-    version="1.1.0",
+    version="1.2.0",
     author="DHL Web Analytics",
     author_email="analytics@dpdhl.com",
     license='MIT',
